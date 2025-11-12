@@ -1,0 +1,26 @@
+.profile-wrapper {
+  color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+  height: 60%;
+  align-items: center;
+  gap: 10px;
+  margin-left: 13px;
+}
+
+.profile-img {
+  height: 100%;
+  aspect-ratio: 1/1;
+  background-color: blue;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.profile-font {
+  font-size: 15px;
+  font-weight: 550;
+}

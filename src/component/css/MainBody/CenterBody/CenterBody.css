@@ -1,0 +1,19 @@
+.CenterBody-warpper {
+  width: 100%;
+  height: 100%;
+
+  color: white;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.CenterBody-warpper-inbox {
+  height: 100%;
+  background-color: #1a1a1a;
+  width: 99%;
+  border-radius: 6px;
+  position: relative;
+  z-index: 1;
+}

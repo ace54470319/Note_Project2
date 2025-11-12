@@ -1,0 +1,7 @@
+.footer-wrapper {
+  border-top: 1px solid #767373;
+  height: 50px;
+  color: white;
+  display: flex;
+  align-items: center;
+}
