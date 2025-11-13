@@ -1,0 +1,50 @@
+.Dark-Light-Switch {
+  margin-right: 20px;
+  margin-left: 10px;
+  background-color: var(--mainbg-color);
+  border-radius: 100px;
+  border: 1px solid var(--text-color);
+  height: 30px;
+  width: 55px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.inCircle {
+  height: 80%;
+  border-radius: 100px;
+  aspect-ratio: 1/1;
+  background-color: var(--text-color);
+  z-index: 10;
+  cursor: pointer;
+  box-shadow: 0px 0px 4px var(--text-color);
+  transition: all 0.5s ease;
+}
+
+.moon_sun_img {
+  position: absolute;
+  height: 80%;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.sunImg {
+  transform: scale(0.6);
+}
+
+.moonImg {
+  transform: scale(1.3);
+}
+
+.inCircle.light {
+  margin-left: 33px;
+}
+
+.inCircle.dark {
+  margin-right: 33px;
+}

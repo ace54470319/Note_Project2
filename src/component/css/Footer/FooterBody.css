@@ -1,7 +1,17 @@
 .footer-wrapper {
   border-top: 1px solid #767373;
-  height: 50px;
-  color: white;
+  height: 70px;
+  color: var(--font-color);
+
   display: flex;
+  align-items: center;
+}
+
+.footer-wrapper-inbox {
+  width: 100%;
+
+  height: 90%;
+  display: flex;
+  flex-direction: row-reverse;
   align-items: center;
 }

@@ -21,34 +21,24 @@ function MainBody() {
 
   const animatePanelResize = (targetSize) => {
     const panel = leftPanelRef.current;
-    if (!panel) {
-      return;
-    }
+    if (!panel) return;
 
     if (animationFrameRef.current) {
       cancelAnimationFrame(animationFrameRef.current);
     }
 
     const startSize = panel.getSize();
-    if (startSize === targetSize) {
-      return;
-    }
+    if (startSize === targetSize) return;
 
     const duration = 320;
-    let startTimestamp = null;
+    let startTime = null;
 
-    const easeInOutCubic = (t) =>
-      t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    const step = (time) => {
+      if (!startTime) startTime = time;
 
-    const step = (timestamp) => {
-      if (startTimestamp === null) {
-        startTimestamp = timestamp;
-      }
-
-      const elapsed = timestamp - startTimestamp;
+      const elapsed = time - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      const easedProgress = easeInOutCubic(progress);
-      const nextSize = startSize + (targetSize - startSize) * easedProgress;
+      const nextSize = startSize + (targetSize - startSize) * progress;
 
       panel.resize(nextSize);
 
@@ -61,24 +51,24 @@ function MainBody() {
   };
 
   const handleToggleLeftSideBar = () => {
-    setIsClose((prev) => {
-      const next = !prev;
-      const targetSize = next ? 3 : 15;
-      animatePanelResize(targetSize);
-      return next;
-    });
+    const next = !isClose;
+    setIsClose(next);
+
+    const targetSize = next ? 3 : 15; // 접힐 때 3, 펼 때 15
+    animatePanelResize(targetSize);
   };
 
   return (
     <div className="body-wrapper">
       <div className="body-wrapper-inbox">
+        {/* 바깥: [ Left ] | [ Center+Right ] */}
         <PanelGroup direction="horizontal" style={{ height: "100%" }}>
           <Panel
             ref={leftPanelRef}
             defaultSize={15}
-            minSize={3}
-            maxSize={17}
-            collapsible
+            minSize={isClose ? 3 : 10}
+            maxSize={20}
+            collapseThreshold={0}
             className="panel-transition left-panel"
           >
             <LeftSideBarBody
@@ -86,20 +76,34 @@ function MainBody() {
               isClose={isClose}
             />
           </Panel>
+
           {!isClose && (
-            <>
-              <PanelResizeHandle className="ResizeHandle" />
-            </>
+            <PanelResizeHandle
+              style={{ marginLeft: "5px", marginRight: "5px" }}
+              className="ResizeHandle"
+            />
           )}
 
-          <Panel defaultSize={70} minSize={60}>
-            <CenterBody />
-          </Panel>
+          {/* 오른쪽 영역: Center + Right 묶음 */}
+          <Panel defaultSize={70} minSize={40}>
+            {/* 안쪽: [ Center ] | [ Right ] */}
+            <PanelGroup direction="horizontal" style={{ height: "100%" }}>
+              <Panel defaultSize={55} minSize={40}>
+                <CenterBody
+                  onToggle={handleToggleLeftSideBar}
+                  isClose={isClose}
+                />
+              </Panel>
 
-          <PanelResizeHandle className="ResizeHandle" />
+              <PanelResizeHandle
+                style={{ marginLeft: "5px", marginRight: "5px" }}
+                className="ResizeHandle"
+              />
 
-          <Panel defaultSize={15} minSize={12} maxSize={17}>
-            <RightSideBarBody />
+              <Panel defaultSize={15} minSize={12} maxSize={17}>
+                <RightSideBarBody />
+              </Panel>
+            </PanelGroup>
           </Panel>
         </PanelGroup>
       </div>

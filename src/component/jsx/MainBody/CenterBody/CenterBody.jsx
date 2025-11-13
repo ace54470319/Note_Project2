@@ -1,6 +1,8 @@
+import { useState } from "react";
 import "../../../css/MainBody/CenterBody/CenterBody.css";
 
-function CenterBody() {
+function CenterBody({ onToggle, isClose }) {
+  const [pathLink, setPathLink] = useState("폴더 / 폴더 / 파일.md");
   return (
     <>
       <div
@@ -11,10 +13,12 @@ function CenterBody() {
           marginBottom: "10px",
         }}
       >
-        폴더 / 폴더 / 파일.md
+        {pathLink}
       </div>
       <div className="CenterBody-warpper">
-        <div className="CenterBody-warpper-inbox"></div>
+        <div
+          className={`CenterBody-warpper-inbox ${isClose ? "collapsed" : ""}`}
+        ></div>
       </div>
     </>
   );

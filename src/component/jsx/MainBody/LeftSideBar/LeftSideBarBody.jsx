@@ -9,26 +9,22 @@ function LeftSideBarBody({ onToggle, isClose }) {
           className={`LeftSideBar-warpper-inbox ${isClose ? "collapsed" : ""}`}
         >
           <div className={`Detail ${isClose ? "collapsed" : ""}`}>
-            <div className="Title">
-              {!isClose && (
-                <>
-                  <span
-                    className={"Title_Font"}
-                    style={{
-                      width: "70%",
-                      overflow: "hidden",
-                      whiteSpace: "nowrap",
-                      textOverflow: "ellipsis",
-                    }}
-                  >
-                    내 라이브러리
-                  </span>
-                </>
-              )}
-
+            <div className={`Title ${isClose ? "collapsed" : ""}`}>
+              <span
+                className={`Title_Font ${isClose ? "collapsed" : ""}`}
+                style={{
+                  width: "70%",
+                  overflow: "hidden",
+                  whiteSpace: "nowrap",
+                  textOverflow: "ellipsis",
+                }}
+              >
+                내 라이브러리
+              </span>
+              <div className="flex-spacer" />
               <img
                 onClick={onToggle}
-                className={`CloseBtn ${isClose ? "collapsed" : ""}`}
+                className={` close-icon CloseBtn ${isClose ? "collapsed" : ""}`}
                 src={CloseButtonImg}
                 alt="창 닫기"
               />
