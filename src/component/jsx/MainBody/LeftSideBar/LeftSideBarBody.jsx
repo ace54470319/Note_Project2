@@ -1,5 +1,6 @@
 import "../../../css/MainBody/LeftSideBar/LeftSideBarBody.css";
 import CloseButtonImg from "../../../img/CloseSideBarIcon.png";
+import TagSearch from "./TagSearh";
 
 function LeftSideBarBody({ onToggle, isClose }) {
   return (
@@ -29,6 +30,7 @@ function LeftSideBarBody({ onToggle, isClose }) {
                 alt="창 닫기"
               />
             </div>
+            <TagSearch isClose={isClose}></TagSearch>
           </div>
         </div>
       </div>

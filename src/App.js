@@ -7,7 +7,7 @@ import MainBody from "./component/jsx/MainBody/MainBody";
 import { useEffect, useState } from "react";
 
 function App() {
-  const [theme, setTheme] = useState("light"); // 'dark' | 'light'
+  const [theme, setTheme] = useState("dark"); // 'dark' | 'light'
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);

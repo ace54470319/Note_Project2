@@ -12,15 +12,34 @@
 .profile-img {
   height: 100%;
   aspect-ratio: 1/1;
-  background-color: rgb(43, 43, 43);
+  background-color: rgb(0, 0, 0);
   border-radius: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  border: 2px solid var(--text-color);
 }
 
 .profile-font {
   font-size: 15px;
   font-weight: 550;
+}
+
+.profile_img {
+  transition: all 0.5s ease;
+}
+.profile_img:hover {
+  opacity: 0.5;
+}
+
+.profile-img:hover .plus_icon {
+  opacity: 1;
+}
+
+.plus_icon {
+  position: absolute;
+  color: white;
+  opacity: 0;
+  font-weight: bold;
 }

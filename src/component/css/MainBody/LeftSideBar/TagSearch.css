@@ -1,0 +1,52 @@
+.Tag-wrapper {
+  width: 100%;
+  height: 110%;
+  overflow-x: auto; /* 가로 스크롤 */
+  overflow-y: hidden; /* 세로 스크롤 제거 */
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: nowrap;
+  padding-bottom: 10px;
+}
+
+.Tag-Box {
+  flex: 0 0 auto; /* 🌟 고정 너비 + 줄어들지 않음 */
+  color: var(--text-color);
+  height: calc(100%);
+  width: 100px;
+  background-color: var(--tag-color);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 20px;
+  border-radius: 120px;
+  white-space: nowrap; /* 태그 텍스트 줄바꿈 방지 */
+  cursor: pointer;
+}
+
+.close_Tag {
+  color: var(--text-color);
+  display: flex;
+  aspect-ratio: 1/1;
+  justify-content: center;
+  border-radius: 100px;
+  background-color: var(--tag-color);
+  align-items: center;
+  height: 100%;
+  cursor: pointer;
+}
+
+.Tag-wrapper::-webkit-scrollbar {
+  height: 4px; /* ← 스크롤바 두께 */
+}
+
+.Tag-wrapper::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-color);
+  /* 스크롤바 색 */
+  border-radius: 0px;
+}
+
+.Tag-wrapper::-webkit-scrollbar-track {
+  background: var(--tag-color); /* 트랙 배경 */
+}

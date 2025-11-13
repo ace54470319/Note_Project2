@@ -18,14 +18,18 @@ code {
   --text-color: #ffffff;
   --panel-bg: #1d1d1d;
   --mainbg-color: #000000;
+  --tag-color: #333333;
+  --scrollbar-color: #747474;
 }
 
 /* 라이트 테마 */
 :root[data-theme="light"] {
   --bg-color: #f3f3f3;
   --text-color: #000000;
-  --panel-bg: #f8f8f8;
+  --panel-bg: #f1f1f1;
   --mainbg-color: #ffffff;
+  --tag-color: #e0e0e0;
+  --scrollbar-color: #929292;
 }
 
 /* 앱 전체에 사용하는 기본 배경/글자색 */
