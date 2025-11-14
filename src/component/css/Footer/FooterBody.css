@@ -1,7 +1,7 @@
 .footer-wrapper {
-  border-top: 2px solid var(--text-color);
+  border-top: 2px solid var(--scrollbar-color);
   height: 70px;
-  color: var(--font-color);
+  color: var(--text-color);
 
   display: flex;
   align-items: center;

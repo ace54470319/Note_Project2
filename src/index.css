@@ -20,6 +20,8 @@ code {
   --mainbg-color: #000000;
   --tag-color: #333333;
   --scrollbar-color: #747474;
+  --placeHolder-color: #747474;
+  --hover-color: #505050;
 }
 
 /* 라이트 테마 */
@@ -30,6 +32,8 @@ code {
   --mainbg-color: #ffffff;
   --tag-color: #e0e0e0;
   --scrollbar-color: #929292;
+  --placeHolder-color: #747474;
+  --hover-color: #c5c5c5;
 }
 
 /* 앱 전체에 사용하는 기본 배경/글자색 */
